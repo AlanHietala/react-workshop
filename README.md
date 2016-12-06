@@ -1,4 +1,4 @@
-= React Workshop
+=React Workshop
 
 We will be building a simple UI in react to view and search thermostats.
 
@@ -7,7 +7,7 @@ Please have the following installed:
 * nodeJS
 * Text Editor
 
-= Installation instructions
+=Installation instructions
 
 run `npm install` from the root of this repo
 
