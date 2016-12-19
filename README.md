@@ -71,4 +71,5 @@ represntations of their DOM counterparts.
 
 Every app that is going to do something useful needs at least one smart component. So lets create one for our application. 
 We can call it `ThermostatAppContainer`.
-		
+
+
