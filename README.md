@@ -285,5 +285,45 @@ we explicitly bind the context of the function to `ThermosatAppContainer` yay ja
 	
 In step 8 we'll complete the filtering and introduce local state.
 
+## Step 8 - Local State and Filtering
+
+Now we need to actually act upon the text coming from the onChangeFilter function. We want to Filter the data object but we also don't want to perminantly change it. 
+
+We can use a concept of immutability to achive this. By ensuring the data object is immutable we can always go back to the original. Immutable means it can't change.
+
+First instead of passing the state object directly into the dumb component, lets assign it to local state in `ThermostatAppContainer` first. React Smart components have internal state.
+You can set it initially in the constructor by 
+
+	this.state = {foo: 'bar'};
+
+and set it other places like our onChangeFilter function like:
+
+	this.setState({bar: 'bim'});
+	
+So lets set our initial state to have a property called thermostats which we'll set to data.
+
+	this.state = {thermostats: data};
+
+now in our onChangeFilter function we can filter the original data list, since we've agreed it is immutable and assign it back 
+to `this.setState({thermostats: filteredThermostats});`.
+
+Why do we need to use this.setState? setState() will merge your changes 
+with the existing ones. You don't need to specify the whole state object, just what you want to change.
+
+To Filter the data we use the filter function on arrays. we also make everything lowercase to make matching simpler
+
+	onChangeFilter(event) {
+		const filterText = event.target.value.toLowerCase();
+		const filteredThermostats = data.filter((thermostat) => {
+			return thermostat.name.toLowerCase().indexOf(filterText) > -1;
+		});
+		this.setState({thermostats: filteredThermostats});
+	}
+	
+Finally we'll need to change the thermostatList property in the JSX to be
+
+	{this.state.thermosats}
+	
+since we don't want to read from the original data constantly any more. This solution only works because we've said we don't want to create side effects in data.
 	
 
