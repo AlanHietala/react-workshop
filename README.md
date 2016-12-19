@@ -239,3 +239,51 @@ now lets tie it into the `ThermostatAppContainer` right above the `ThermostatLis
     }
     
 Now FilterControl is expecting an onChange prop, and we'll implement that in the next step
+
+## Step 7 - Adding onChange to ThermostatAppContainer and passing it down
+
+Up to this point we've only been playing with dumb components, its time for that to change with our implementation of onChange.
+
+lets add a onChangeFilter function to the `ThermostatAppContaner` class.
+
+	import React from 'react';
+	import data from '../data/data';
+	import ThermostatList from './ThermostatList.jsx';
+	import FilterControl from './FilterControl.jsx';
+	
+	export default class ThermostatAppContainer extends React.Component {
+		constructor(props) {
+			super(props);
+		}
+		
+		onChangeFilter(event) {
+		
+		}
+		
+		render() {
+			// onchange expected on FilterControl
+			return (<div>
+				<FilterControl onChange={this.onChangeFilter} />
+				<ThermostatList thermostatList={data} />
+			</div>);
+		}
+	}
+	
+because of how javascript uses prototypal inheritance if we ever want to use this to refer to `ThermostatAppContaner` we 
+need to bind it. This is one reason ES2015 classes are contentious, They create the illusion of classical inheritance, but it really isn't.
+
+in the constructor we need to add
+
+`this.onChangeFilter = this.onChangeFilter.bind(this);`
+
+we explicitly bind the context of the function to `ThermosatAppContainer` yay javascript.
+
+	constructor(props) {
+		super(props);
+		this.onChangeFilter = this.onChangeFilter.bind(this);
+	}
+	
+In step 8 we'll complete the filtering and introduce local state.
+
+	
+
