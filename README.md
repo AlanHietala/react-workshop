@@ -191,7 +191,7 @@ make sure to import the new `ThermostatDetail` component at the top first. All a
 	export default (props) => { // props could be destructured to make this more succinct
 		const {thermostatList} = props;
 		const thermostats = thermostatList.map((thermostat) => {
-			return (<ThermostatDetail thermostat={thermostat} />);
+			return (<ThermostatDetail key={thermostat.identifier} thermostat={thermostat} />);
 		});
 	
 		return (<div>{thermostats}</div>);
