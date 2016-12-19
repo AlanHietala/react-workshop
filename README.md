@@ -155,3 +155,44 @@ JSX uses curly brackets to evaluate any code within them, in this case we're jus
 imported.
 
 you should see the count printed out. 
+
+## Step 5 - creating the thermostat Detail JSX and tie it into the thermostatList
+
+We'll need to create a thermostat Detail Dumb component to render out an individual thermostat. lets call it `ThermostatDetail`. It will have a thermostat prop which we'll use to dump out the name field.
+
+	import React from 'react';
+    
+    export default ({thermostat}) => {
+    	return (<div>{thermostat.name}</div>)
+    }
+    
+Now we'll need to hook this into the `ThermostatList` component. Right now it just displays the count but we'll need to generate a component for each item in the `thermostatList` prop and render into the JSX.
+
+JSX lets you render a group of components by dumping an array of them inside some existing tags like so:
+
+	<div>{ArrayOfComponents}</div>
+	
+This makes it easy to use thermostatList.map() in order to map from an array of javascript objects to an array of components. 
+
+	const thermostats = thermostatList.map((thermostat) => { 
+		return (<ThermostatDetail key={thermostat.identifier} thermostat={thermostat} />);
+	});
+	
+now we have a list of components to render into the `ThermostatList` JSX.
+
+make sure to import the new `ThermostatDetail` component at the top first. All assembled it should look like:
+
+	import React from 'react';
+	import ThermostatDetail from './ThermostatDetail.jsx';
+	
+	export default (props) => { // props could be destructured to make this more succinct
+		const {thermostatList} = props;
+		const thermostats = thermostatList.map((thermostat) => {
+			return (<ThermostatDetail thermostat={thermostat} />);
+		});
+	
+		return (<div>{thermostats}</div>);
+	}
+
+You may wonder why the key is provided, React does some fancy stuff behind the scenes and in order to optimize things fully 
+when you create an array of components each one should have a key. You can omit it but react will complain with a warning.
