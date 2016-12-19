@@ -31,7 +31,7 @@ In the data folder there is the raw data we will be working with.
 
 Styles contains the css file for styling your application, though there are a few different options available when using react.
 
-# Part 1 - React Components
+## Step 1 - React Components
 
 The most important thing about react components are its properties. 
 React components come in two flavours - Smart and Dumb
@@ -73,7 +73,7 @@ Every app that is going to do something useful needs at least one smart componen
 We can call it `ThermostatAppContainer`.
 
 
-# Step 2 - Tie the ThermostatAppContainer Component into the component heirarchy
+## Step 2 - Tie the ThermostatAppContainer Component into the component heirarchy
 
 All react apps have a root node, in this case it is a component called Root.jsx. We want to import our ThermostatAppContainer.jsx
 file into the Root.jsx and have it render out. 
@@ -97,3 +97,15 @@ your Root.jsx file should now look like:
 			return (<ThermostatAppContainer/>);
 		}
 	}
+	
+## Step 3 - getting some data to work with
+ 
+ no application is useful without any data so lets bring some into our smart component
+ `ThermostatAppContainer` by importing the data.js file from `app/js/data/data.js`
+ 
+ normally imports are relative so your import statement should look like:
+ 
+ `import data from '../data/data`;
+ 
+ you can leave the file ending off for anything that has a .js file ending. This is all configurable too so you could support jsx too.
+ 
