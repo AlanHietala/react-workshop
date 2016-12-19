@@ -13,7 +13,7 @@ Clone or download this repo and run `npm install` from the root directory.
 
 ## Run Instructions
 
-Run `npm start` from the root of this repo. This will launch a webserver at [http://localhost:3001](http://localhost:3001) so simply point your browser there and you'll have the sample template up and running.
+Run `npm start` from the root of this repo. This will launch a webserver at [http://localhost:3001](http://localhost:3001){:target="_blank"} so simply point your browser there and you'll have the sample template up and running.
 
 # Project Structure
 
@@ -218,6 +218,7 @@ In order to filter the list of thermostats you'll need to create an input which 
 
 Create an input tag in the jsx and pass along the onChange property. When we pass along a function to use, it will accept the event property. This will be hooked up later in the `ThermostatAppContainer` Smart Component.
 ```javascript
+	// FilterControl.jsx
 	import React from 'react';
 
     export default ({onChange}) => {
@@ -230,23 +231,23 @@ Now let's tie it into the `ThermostatAppContainer` right above the `ThermostatLi
 ```javascript
 	// ThermostatAppContainer.jsx
 	import React from 'react';
-  import data from '../data/data';
-  import ThermostatList from './ThermostatList.jsx';
-  import FilterControl from './FilterControl.jsx';
+	import data from '../data/data';
+	import ThermostatList from './ThermostatList.jsx';
+	import FilterControl from './FilterControl.jsx';
 
-  export default class ThermostatAppContainer extends React.Component {
-  	constructor(props) {
-  		super(props);
-  	}
+	export default class ThermostatAppContainer extends React.Component {
+		constructor(props) {
+			super(props);
+		}
 
-  	render() {
-  		// onChange expected on FilterControl
-  		return (<div>
-  			<FilterControl />
-  			<ThermostatList thermostatList={data} />
-  		</div>);
-  	}
-  }
+		render() {
+			// onChange expected on FilterControl
+			return (<div>
+				<FilterControl />
+				<ThermostatList thermostatList={data} />
+			</div>);
+		}
+	}
 ```
 Now FilterControl is expecting an onChange prop, and we'll implement that in the next step.
 
