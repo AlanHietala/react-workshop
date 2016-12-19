@@ -196,3 +196,46 @@ make sure to import the new `ThermostatDetail` component at the top first. All a
 
 You may wonder why the key is provided, React does some fancy stuff behind the scenes and in order to optimize things fully 
 when you create an array of components each one should have a key. You can omit it but react will complain with a warning.
+
+## Step 6 - The Filter Control
+
+in order to filter the list of thermostats you'll need to create an input which we can Filter the results by. Lets create a dumb component called `FilterControl`. 
+
+it will have the prop `onChange`
+
+create an input tag in the jsx and pass along the onChange property too. This prop takes a function which has the following method signature:
+
+	onChange(event)
+	
+So when we pass along a function to use, it will accept the event property. This will be hooked up later in the `ThermostatAppContainer` Smart Component
+
+	import React from 'react';
+    
+    export default ({onChange}) => {
+    	return (<input onChange={onChange} />)
+    }
+    
+even through this component is very simple, we still create a component out of it since it could easily expand in the future.
+
+now lets tie it into the `ThermostatAppContainer` right above the `ThermostatList` in the JSX.
+
+	import React from 'react';
+    import data from '../data/data';
+    import ThermostatList from './ThermostatList.jsx';
+    import FilterControl from './FilterControl.jsx';
+    
+    export default class ThermostatAppContainer extends React.Component {
+    	constructor(props) {
+    		super(props);
+    	}
+    
+    	render() {
+    		// onChange expected on FilterControl
+    		return (<div>
+    			<FilterControl />
+    			<ThermostatList thermostatList={data} />
+    		</div>);
+    	}
+    }
+    
+Now FilterControl is expecting an onChange prop, and we'll implement that in the next step
