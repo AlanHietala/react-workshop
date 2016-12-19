@@ -13,7 +13,7 @@ Clone or download this repo and run `npm install` from the root directory.
 
 ## Run Instructions
 
-Run `npm start` from the root of this repo. This will launch a webserver at [http://localhost:3001](http://localhost:3001){:target="_blank"} so simply point your browser there and you'll have the sample template up and running.
+Run `npm start` from the root of this repo. This will launch a webserver at <a href="http://localhost:3001" target="_blank">http://localhost:3001</a> so simply point your browser there and you'll have the sample template up and running.
 
 # Project Structure
 
