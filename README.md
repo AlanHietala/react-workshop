@@ -13,7 +13,7 @@ Clone or download this repo and run `npm install` from the root directory.
 
 ## Run Instructions
 
-Run `npm start` from the root of this repo. This will launch a webserver at http://localhost:3001 so simply point your browser there and you'll have the sample template up and running.
+Run `npm start` from the root of this repo. This will launch a webserver at [http://localhost:3001](http://localhost:3001) so simply point your browser there and you'll have the sample template up and running.
 
 # Project Structure
 
@@ -104,6 +104,7 @@ In the Root.jsx render function change the `return (<h1>React Workshop</h1>);` t
 Your Root.jsx file should now look like:
 
 ```javascript
+	// Root.jsx
 	import React from 'react';
 	import ThermostatAppContainer from './ThermostatAppContainer.jsx';
 
@@ -168,6 +169,7 @@ The thermostat count should now be printed out in the browser.
 
 We'll need to create a `ThermostatDetail` Dumb component to render out an individual thermostat. It will have a thermostat prop which we'll use to dump out the name field.
 ```javascript
+	// ThermostatDetail.jsx
 	import React from 'react';
 
     export default ({thermostat}) => {
@@ -190,6 +192,7 @@ Now we have a list of components to render into the `ThermostatList` component.
 
 Make sure to import the new `ThermostatDetail` component at the top first. All assembled it should look like:
 ```javascript
+	// ThermostatList.jsx
 	import React from 'react';
 	import ThermostatDetail from './ThermostatDetail.jsx';
 
@@ -225,24 +228,25 @@ Even through this component is very simple, we still create a component out of i
 
 Now let's tie it into the `ThermostatAppContainer` right above the `ThermostatList` in the JSX.
 ```javascript
+	// ThermostatAppContainer.jsx
 	import React from 'react';
-    import data from '../data/data';
-    import ThermostatList from './ThermostatList.jsx';
-    import FilterControl from './FilterControl.jsx';
+  import data from '../data/data';
+  import ThermostatList from './ThermostatList.jsx';
+  import FilterControl from './FilterControl.jsx';
 
-    export default class ThermostatAppContainer extends React.Component {
-    	constructor(props) {
-    		super(props);
-    	}
+  export default class ThermostatAppContainer extends React.Component {
+  	constructor(props) {
+  		super(props);
+  	}
 
-    	render() {
-    		// onChange expected on FilterControl
-    		return (<div>
-    			<FilterControl />
-    			<ThermostatList thermostatList={data} />
-    		</div>);
-    	}
-    }
+  	render() {
+  		// onChange expected on FilterControl
+  		return (<div>
+  			<FilterControl />
+  			<ThermostatList thermostatList={data} />
+  		</div>);
+  	}
+  }
 ```
 Now FilterControl is expecting an onChange prop, and we'll implement that in the next step.
 
@@ -252,6 +256,7 @@ Up to this point we've only been playing with dumb components, it's time for tha
 
 Let's add an onChangeFilter function to the `ThermostatAppContaner` class.
 ```javascript
+	// ThermostatAppContainer.jsx
 	import React from 'react';
 	import data from '../data/data';
 	import ThermostatList from './ThermostatList.jsx';
