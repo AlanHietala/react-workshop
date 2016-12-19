@@ -31,6 +31,17 @@ In the data folder there is the raw data we will be working with.
 
 Styles contains the css file for styling your application, though there are a few different options available when using react.
 
+# What are we building?
+
+we're building a simple app to filter a list of thermostats based on user input. 
+
+<FilterInput>
+
+Upstairs
+Downstairs
+
+by typing into the filterInput the list below will only show matches that contain the search term.
+
 ## Step 1 - React Components
 
 The most important thing about react components are its properties. 
