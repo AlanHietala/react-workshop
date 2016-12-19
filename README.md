@@ -35,10 +35,14 @@ Styles contains the css file for styling your application, though there are a fe
 
 we're building a simple app to filter a list of thermostats based on user input. 
 
+```
 <FilterInput>
 
 Upstairs
 Downstairs
+
+```
+
 
 by typing into the filterInput the list below will only show matches that contain the search term.
 
