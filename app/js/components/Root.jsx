@@ -1,6 +1,8 @@
 import React from 'react';
+import ThermostatAppContainer from './ThermostatAppContainer.jsx';
+
 export default class Root extends React.Component {
 	render() {
-		return (<h1>React Workshop</h1>);
+		return (<ThermostatAppContainer/>);
 	}
 }

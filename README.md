@@ -73,3 +73,27 @@ Every app that is going to do something useful needs at least one smart componen
 We can call it `ThermostatAppContainer`.
 
 
+# Step 2 - Tie the ThermostatAppContainer Component into the component heirarchy
+
+All react apps have a root node, in this case it is a component called Root.jsx. We want to import our ThermostatAppContainer.jsx
+file into the Root.jsx and have it render out. 
+
+At the top of  Root.jsx
+
+    import ThermostatAppContainer from './ThermostatAppContainer.jsx';
+    
+now you can use that component in any JSX and pass it props if you want.
+
+in Root.jsx render function change the `return (<h1>React Workshop</h1>);` to 
+`return (<ThermostatAppContainer />);`
+
+your Root.jsx file should now look like:
+
+	import React from 'react';
+	import ThermostatAppContainer from './ThermostatAppContainer.jsx';
+	
+	export default class Root extends React.Component {
+		render() {
+			return (<ThermostatAppContainer/>);
+		}
+	}
