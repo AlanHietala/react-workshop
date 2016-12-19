@@ -1,5 +1,6 @@
 import React from 'react';
 import data from '../data/data';
+import ThermostatList from './ThermostatList.jsx';
 
 export default class ThermostatAppContainer extends React.Component {
 	constructor(props) {
@@ -7,6 +8,6 @@ export default class ThermostatAppContainer extends React.Component {
 	}
 
 	render() {
-		return (<div>Thermostat App Container</div>);
+		return (<div><ThermostatList thermostatList={data} /></div>);
 	}
 }

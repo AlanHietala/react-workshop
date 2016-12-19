@@ -109,3 +109,49 @@ your Root.jsx file should now look like:
  
  you can leave the file ending off for anything that has a .js file ending. This is all configurable too so you could support jsx too.
  
+## step 4 - Passing data as props
+
+now we've got some data we want to do something with it. lets create a ThermostatList.jsx component but this time it will be a dumb component.
+
+Now we're going to assume that the thermostatList will be passed in as the property `thermostatList`
+
+It can be accessed on the props variable in the function like 'const thermostatList = props.thermostatlist'
+
+	export default (props) => {
+		const thermostatList = props.thermostatList;
+		const thermostatCount = thermostatList.length;
+		return (<div>Thermostat Count: {thermostatCount}</div>);
+	}
+
+If you want to use some es2015 features called destructuring the same code can be written like `const {thermostatList} = props;`
+this means create a const variable called thermostatList from the property thermostatList on the props variable. 
+
+	export default (props) => {
+		const {thermostatList} = props;
+		const thermostatCount = thermostatList.length;
+		return (<div>Thermostat Count: {thermostatCount}</div>);
+	}
+
+You can even destructure parameters directly! so instead of writing 
+
+	const {thermostatList} = props; 
+
+you can just destructure the parameters to the function like 
+
+	({thermosatList}) => {
+		const thermostatCount = thermostatList.length;
+		return (<div>Thermostat Count: {thermostatCount}</div>);
+	}
+	
+Now lets render our ThermostatList out from the `ThermostatAppContainer` component first import the file and then add that component to the `ThermostatAppContainer` jsx
+
+We can also now pass along the data as the prop thermostatList to it. 
+
+The jsx will look like:
+
+	return (<div><ThermostatList thermostatList={data} /></div>);
+	
+JSX uses curly brackets to evaluate any code within them, in this case we're just passing data along that we previously
+imported.
+
+you should see the count printed out. 
