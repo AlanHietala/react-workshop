@@ -45,13 +45,13 @@ Smart Component
 
 	import React from 'react';
 	export default class MyComponent extends React.Component {
-		constructor() {
-		
+		constructor(props) {
+			super(props);
 		}
 		
 		render() {
 			// props available at this.props;
-			return (<div>hi</div>)
+			return (<div>hi</div>); // This is JSX
 		}
 	}
 
@@ -62,9 +62,12 @@ Dumb Component
 	
 	export default (props) => {
 		// props are passed in directly
-		return (<div>hi</div>
+		return (<div>hi</div>);  // this is JSX
 	}
 
+
+The HTML looking tags in the javascript is called JSX and are actual javascript object 
+represntations of their DOM counterparts. 
 
 Every app that is going to do something useful needs at least one smart component. So lets create one for our application. 
 We can call it `ThermostatAppContainer`.
